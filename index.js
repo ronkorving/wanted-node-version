@@ -49,15 +49,27 @@ function areAllValuesEqual(obj) {
  * @returns {Object}        { sources, version, conflict }
  */
 module.exports = function (srcPath) {
-	const sources = {
-		'.nvmrc': safeReadText(pathJoin(srcPath, '.nvmrc')),
-		'.node-version': safeReadText(pathJoin(srcPath, '.node-version')),
-		'engines.node': getEnginesNode(pathJoin(srcPath, 'package.json'))
-	};
+	const nvmrc = safeReadText(pathJoin(srcPath, '.nvmrc'));
+	const nodeVersion = safeReadText(pathJoin(srcPath, '.node-version'));
+	const enginesNode = getEnginesNode(pathJoin(srcPath, 'package.json'));
+
+	const sources = {};
+
+	if (nvmrc) {
+		sources['.nvmrc'] = nvmrc;
+	}
+
+	if (nodeVersion) {
+		sources['.node-version'] = nodeVersion;
+	}
+
+	if (enginesNode) {
+		sources['engines.node'] = enginesNode;
+	}
 
 	return {
 		sources,
 		version: sources['.nvmrc'] || sources['.node-version'] || sources['engines.node'],
-		conflict: areAllValuesEqual(sources)
+		conflict: !areAllValuesEqual(sources)
 	};
 };

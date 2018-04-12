@@ -24,10 +24,10 @@ Outputs:
 ```
 { sources:
    { '.nvmrc': '8',
-     '.node-version': undefined,
-     'engines.node': undefined },
+     '.node-version': '9.0.0',
+     'engines.node': '>=8' },
   version: '8',
-  conflict: false }
+  conflict: true }
 ```
 
 - The `sources` property is an object that contains the version-range that was set for each source.
