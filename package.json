@@ -1,6 +1,6 @@
 {
   "name": "wanted-node-version",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Detects which version of Node your program should be using",
   "main": "index.js",
   "scripts": {
