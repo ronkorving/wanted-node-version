@@ -1,0 +1,19 @@
+{
+  "name": "wanted-node-version",
+  "version": "1.0.0",
+  "description": "Detects which version of Node your program should be using",
+  "main": "index.js",
+  "scripts": {
+    "test": "eslint ."
+  },
+  "keywords": [
+    "nvmrc",
+    "node-version",
+    "engines.node"
+  ],
+  "author": "Ron Korving <rkorving@moneytree.jp>",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "4.19.1"
+  }
+}
